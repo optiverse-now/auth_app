@@ -1,9 +1,18 @@
-export default function HomePage() {
+import { getAuth } from "@/auth";
+import { redirect } from "next/navigation";
+import LogoutButton from "@/app/(private)/LogoutButton";
+
+export default async function PrivateLayout() {
+  const session = await getAuth();
+
+  if (!session) {
+    redirect("/auth");
+  }
+
   return (
     <div>
-      <div>ログイン後の画面</div>
-      <div>ログインアカウント</div>
-      <div>ログアウトボタン</div>
+      test
+      <LogoutButton />
     </div>
   );
 }
