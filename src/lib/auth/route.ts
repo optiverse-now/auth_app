@@ -1,3 +1,3 @@
-import { getHandlers } from "@/auth";
+import { getHandlers } from "@/lib/auth/auth";
 
 export const { GET, POST } = await getHandlers();

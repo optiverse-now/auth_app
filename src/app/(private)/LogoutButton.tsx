@@ -1,6 +1,6 @@
 "use client";
 
-import { signOutAction } from "@/auth";
+import { signOutAction } from "@/lib/auth/auth";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 

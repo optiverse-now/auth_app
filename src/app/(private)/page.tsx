@@ -1,4 +1,4 @@
-import { getAuth } from "@/auth";
+import { getAuth } from "@/lib/auth/auth";
 import { redirect } from "next/navigation";
 import LogoutButton from "@/app/(private)/LogoutButton";
 import styles from "./page.module.css";
