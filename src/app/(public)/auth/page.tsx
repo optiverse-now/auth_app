@@ -1,6 +1,6 @@
 "use client";
 
-import { signInAction } from "@/lib/auth/auth";
+import { signInAction } from "@/auth";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
