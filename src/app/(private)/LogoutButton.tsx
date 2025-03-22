@@ -2,6 +2,7 @@
 
 import { signOutAction } from "@/auth";
 import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
 
 export default function LogoutButton() {
   const router = useRouter();
@@ -12,6 +13,6 @@ export default function LogoutButton() {
   };
 
   return (
-    <button onClick={handleLogout}>ログアウト</button>
+    <button onClick={handleLogout} className={styles.logoutButton}>ログアウト</button>
   );
 } 

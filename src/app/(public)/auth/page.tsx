@@ -3,6 +3,7 @@
 import { signInAction } from "@/auth";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
 
 interface SignInResult {
   error?: string;
@@ -33,7 +34,6 @@ export default function LoginPage() {
         router.push("/");
         router.refresh();
         console.log("ログイン成功");
-        
       }
     } catch (error) {
       console.error("ログインエラー:", error);
@@ -42,15 +42,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold text-center">ログイン</h1>
+    <div className={styles.container}>
+      <div className={styles.formContainer}>
+        <h1 className={styles.title}>ログイン</h1>
         {error && (
-          <div className="p-2 text-red-500 bg-red-50 rounded">{error}</div>
+          <div className={styles.errorMessage}>{error}</div>
         )}
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className={styles.formGroup}>
+            <label className={styles.label}>
               メールアドレス
             </label>
             <input
@@ -58,11 +58,11 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded-md"
+              className={styles.input}
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className={styles.formGroup}>
+            <label className={styles.label}>
               パスワード
             </label>
             <input
@@ -70,12 +70,12 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded-md"
+              className={styles.input}
             />
           </div>
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            className={styles.button}
           >
             ログイン
           </button>
